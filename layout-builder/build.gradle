@@ -50,7 +50,7 @@ githubProperties.load(project.rootProject.file('github.properties').newDataInput
 
 // Place the version of your library here
 def getPublishVersionName = { ->
-    return '0.0.1'
+    return '0.0.2'
 }
 
 // Add the name of your library here
@@ -84,7 +84,7 @@ publishing() {
             url = uri(getGitHubUrl())
             credentials {
                 username = "Swati-priya"
-                password = "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"
+                password = "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"
             }
         }
     }
