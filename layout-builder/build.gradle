@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'maven-publish'
 }
 
 android {
@@ -44,6 +45,51 @@ android {
     }
 }
 
+def githubProperties = new Properties()
+githubProperties.load(project.rootProject.file('github.properties').newDataInputStream())
+
+// Place the version of your library here
+def getPublishVersionName = { ->
+    return '0.0.1'
+}
+
+// Add the name of your library here
+def getArtifactId = { ->
+    return "layout-builder"
+}
+
+// Add the group ID of your library here
+def getGroupId = { ->
+    return "com.zopping.layout_builder"
+}
+
+// Prepare URL of maven package.
+def getGitHubUrl = { ->
+    return "https://maven.pkg.github.com/Swati-priya/layout-library"
+}
+
+publishing() {
+    publications {
+        bar(MavenPublication) {
+            groupId getGroupId()
+            artifactId getArtifactId()
+            version getPublishVersionName()
+            artifact("${buildDir}/outputs/aar/layout-builder-release.aar")
+        }
+    }
+
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri(getGitHubUrl())
+            credentials {
+                username = "Swati-priya"
+                password = "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"
+            }
+        }
+    }
+}
+
 dependencies {
 
     implementation 'androidx.core:core-ktx:1.9.0'
@@ -65,4 +111,6 @@ dependencies {
 
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_ui_version"
     debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_ui_version"
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 }
