@@ -24,4 +24,4 @@ jobs:
       - name: assemble package
         run: ./gradlew layout-builder:assemble
       - name: publish package
-          run: ./gradlew layout-builder:publish
+        run: ./gradlew layout-builder:publish
