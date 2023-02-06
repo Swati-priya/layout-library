@@ -7,7 +7,7 @@ on:
 
 jobs:
   assemble:
-    runs-on: ubutnu-latest
+    runs-on: ubuntu-latest
     steps:
       - name: assemble package
         run: ./gradlew layout-builder:assemble
