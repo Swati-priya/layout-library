@@ -1,4 +1,4 @@
-name: Publish library package
+name: Assemble library package
 
 on:
   push:
@@ -7,14 +7,21 @@ on:
 
 jobs:
   assemble:
+
     runs-on: ubuntu-latest
+
     steps:
+      - uses: actions/checkout@v3
+      - name: set up JDK 11
+        uses: actions/setup-java@v3
+        with:
+          java-version: '11'
+          distribution: 'temurin'
+          cache: gradle
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
       - name: assemble package
         run: ./gradlew layout-builder:assemble
-
-  publish:
-    needs: [assemble]
-    runs-on: ubuntu-latest
-    steps:
       - name: publish package
-        run: ./gradlew layout-builder:publish
+          run: ./gradlew layout-builder:publish
