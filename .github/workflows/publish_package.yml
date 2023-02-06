@@ -5,7 +5,7 @@ on:
     branches:
       - main
 
-job:
+jobs:
   assemble:
     runs-on: ubutnu-latest
     steps:
