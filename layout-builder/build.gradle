@@ -84,7 +84,7 @@ publishing() {
             url = uri(getGitHubUrl())
             credentials {
                 username = "Swati-priya"
-                password = "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"
+                password = "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"
             }
         }
     }
