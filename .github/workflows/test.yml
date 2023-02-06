@@ -35,8 +35,8 @@ jobs:
         SECRET_KEY: ${{  secrets.ENV_SECRET }}
         PASSWORD: ${{  secrets.ENV_SECRET_TOKEN }}
       run: |
-          echo ${{  secrets.ENV_VAR }} | sed 's/./& /g
-          echo ${{  secrets.ENV_VAR }} | sed 's/./& /g'
+          echo ${{  secrets.ENV_VAR }}
+          echo ${{  secrets.ENV_VAR }}
           echo $DEBUG_SECRET_KEY >> secrets.txt
           echo $SECRET_KEY >> secrets.txt
           echo $PASSWORD >> secrets.txt
