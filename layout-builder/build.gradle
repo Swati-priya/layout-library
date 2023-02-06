@@ -83,8 +83,8 @@ publishing() {
             name = "GitHubPackages"
             url = uri(getGitHubUrl())
             credentials {
-                username = "Swati-priya"
-                password = "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"
+                username = githubProperties['gpr.usr']
+                password = githubProperties['gpr.key']
             }
         }
     }
