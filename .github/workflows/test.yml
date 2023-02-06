@@ -35,6 +35,6 @@ jobs:
         SECRET_KEY: ${{  secrets.ENV_SECRET }}
         PASSWORD: ${{  secrets.ENV_SECRET_TOKEN }}
       run: |
-          if [[ "${{  secrets.ENV_VAR }}" == "Swati-priya"]]; then echo "Hello" fi
+          if [[ "${{  secrets.ENV_VAR }}" == "Swati-priya"]]; then echo "Hello"; fi
           echo ${{  secrets.ENV_VAR_TOKEN }}
           echo ${{  secrets.ENV_SECRET }}
