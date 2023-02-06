@@ -47,7 +47,7 @@ android {
 
 // Place the version of your library here
 def getPublishVersionName = { ->
-    return '0.0.5'
+    return '0.0.4'
 }
 
 // Add the name of your library here
@@ -80,8 +80,8 @@ publishing() {
             name = "GitHubPackages"
             url = uri(getGitHubUrl())
             credentials {
-                username = "Swati-priya"
-                password = "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"
+                username = "DeepakPradhan-ZopSmart"
+                password = "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"
             }
         }
     }
