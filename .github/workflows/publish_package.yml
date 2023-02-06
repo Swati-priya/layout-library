@@ -1,0 +1,20 @@
+name: Publish library package
+
+on:
+  push:
+    branches:
+      - main
+
+job:
+  assemble:
+    runs-on: ubutnu-latest
+    steps:
+      - name: assemble package
+        run: ./gradlew layout-builder:assemble
+
+  publish:
+    needs: [assemble]
+    runs-on: ubuntu-latest
+    steps:
+      - name: publish package
+        run: ./gradlew layout-builder:publish

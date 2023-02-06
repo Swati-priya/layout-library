@@ -50,7 +50,7 @@ githubProperties.load(project.rootProject.file('github.properties').newDataInput
 
 // Place the version of your library here
 def getPublishVersionName = { ->
-    return '0.0.2'
+    return '0.0.3'
 }
 
 // Add the name of your library here
