@@ -45,9 +45,6 @@ android {
     }
 }
 
-def githubProperties = new Properties()
-githubProperties.load(project.rootProject.file('github.properties').newDataInputStream())
-
 // Place the version of your library here
 def getPublishVersionName = { ->
     return '0.0.4'
@@ -84,7 +81,7 @@ publishing() {
             url = uri(getGitHubUrl())
             credentials {
                 username = "Swati-priya"
-                password = "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"
+                password = "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"
             }
         }
     }
