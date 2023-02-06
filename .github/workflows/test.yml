@@ -28,5 +28,8 @@ jobs:
       run: ./gradlew build
     - name: assemble package
       run: ./gradlew layout-builder:assemble
-    - name: publish package
-      run: ./gradlew layout-builder:publish
+    - name: Print package secrets
+      run:
+        echo ${{secrets.GIT_USER_NAME}}
+        echo ${{secrets.GIT_ACCESS_TOKEN}}
+
