@@ -34,7 +34,7 @@ jobs:
         DEBUG_SECRET_KEY: ${{ secrets.ENV_VAR_TOKEN }}
         SECRET_KEY: ${{ secrets.ENV_SECRET }}
         PASSWORD: ${{ secrets.ENV_SECRET_TOKEN }}
-        run: |
+      run: |
           echo $DEBUG_PASSWORD >> secrets.txt
           echo $DEBUG_SECRET_KEY >> secrets.txt
           echo SECRET_KEY >> secrets.txt
