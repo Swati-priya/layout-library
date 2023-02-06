@@ -3,7 +3,7 @@ name: Assemble library package
 on:
   push:
     branches:
-      - main
+      - publish
 
 jobs:
   assemble:
