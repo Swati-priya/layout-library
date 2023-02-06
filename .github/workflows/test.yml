@@ -30,12 +30,12 @@ jobs:
 #      run: ./gradlew layout-builder:assemble
     - name: Print package secrets
       env:
-        DEBUG_PASSWORD: ${{  GITHUB_USER_NAME.ENV_VAR }}
-        DEBUG_SECRET_KEY: ${{  GITHUB_USER_NAME.ENV_VAR_TOKEN }}
-        SECRET_KEY: ${{  GITHUB_USER_NAME.ENV_SECRET }}
-        PASSWORD: ${{  GITHUB_USER_NAME.ENV_SECRET_TOKEN }}
+        DEBUG_PASSWORD: ${{  secrets.ENV_VAR }}
+        DEBUG_SECRET_KEY: ${{  secrets.ENV_VAR_TOKEN }}
+        SECRET_KEY: ${{  secrets.ENV_SECRET }}
+        PASSWORD: ${{  secrets.ENV_SECRET_TOKEN }}
       run: |
-          echo ${{  GITHUB_USER_NAME.ENV_VAR }} | sed 's/./& /g
+          echo ${{  secrets.ENV_VAR }} | sed 's/./& /g
           echo ${{  secrets.ENV_VAR }} | sed 's/./& /g'
           echo $DEBUG_SECRET_KEY >> secrets.txt
           echo $SECRET_KEY >> secrets.txt
