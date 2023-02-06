@@ -24,17 +24,9 @@ jobs:
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
-#    - name: Build with Gradle
-#      run: ./gradlew build
-#    - name: assemble package
-#      run: ./gradlew layout-builder:assemble
-    - name: Print package secrets
-      env:
-        DEBUG_PASSWORD: ${{  secrets.ENV_VAR }}
-        DEBUG_SECRET_KEY: ${{  secrets.ENV_VAR_TOKEN }}
-        SECRET_KEY: ${{  secrets.ENV_SECRET }}
-        PASSWORD: ${{  secrets.ENV_SECRET_TOKEN }}
-      run: |
-          if [ "${{ secrets.ENV_VAR }}" == '' ]; then echo "Hello"; else echo "bye"; fi
-          echo ${{  secrets.ENV_VAR_TOKEN }}
-          echo ${{  secrets.ENV_SECRET }}
+    - name: Build with Gradle
+      run: ./gradlew build
+    - name: assemble package
+      run: ./gradlew layout-builder:assemble
+    - name: Publish package
+      run: ./gradlew layout-builder:publish
