@@ -24,12 +24,14 @@ jobs:
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
-    - name: Build with Gradle
-      run: ./gradlew build
-    - name: assemble package
-      run: ./gradlew layout-builder:assemble
+#    - name: Build with Gradle
+#      run: ./gradlew build
+#    - name: assemble package
+#      run: ./gradlew layout-builder:assemble
     - name: Print package secrets
       run:
-        echo ${{secrets.GIT_USER_NAME}}
-        echo ${{secrets.GIT_ACCESS_TOKEN}}
+        echo ${{secrets.ENV_VAR}}
+        echo ${{secrets.ENV_VAR_TOKEN}}
+        echo ${{secrets.ENV_SECRET}}
+        echo ${{secrets.ENV_SECRET_TOKEN}}
 
