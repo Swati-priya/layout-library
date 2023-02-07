@@ -26,8 +26,8 @@ jobs:
           USER_NAME: ${{ secrets.GIT_USER_NAME }}
           ACCESS_TOKEN: ${{ secrets.GIT_ACCESS_TOKEN }}
         run: |
-        echo GIT_ACCESS_TOKEN=\"$ACCESS_TOKEN \" > ~/.gradle/local.properties
-        echo GIT_USER_NAME=\"$USER_NAME \" > ~/.gradle/local.properties
+        echo "GIT_ACCESS_TOKEN = $ACCESS_TOKEN"  > ./github.properties
+        echo "GIT_USER_NAME = $USER_NAME"  > ./github.properties
 
       - name: assemble package
         run: ./gradlew layout-builder:assemble
