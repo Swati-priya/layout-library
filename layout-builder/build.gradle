@@ -81,11 +81,18 @@ publishing() {
             url = uri(getGitHubUrl())
             credentials {
                 username = "Swati-priya"
-                password = "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"
+                password = getAccessToken()
             }
         }
     }
 }
+
+String getAccessToken() {
+    def properties = new Properties()
+    properties.load(new FileInputStream(rootProject.file("./local.properties")))
+    return properties['GIT_ACCESS_TOKEN']
+}
+
 
 dependencies {
 
