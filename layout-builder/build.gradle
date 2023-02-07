@@ -47,7 +47,7 @@ android {
 
 // Place the version of your library here
 def getPublishVersionName = { ->
-    return '0.0.6'
+    return '0.0.7'
 }
 
 // Add the name of your library here
@@ -80,8 +80,8 @@ publishing() {
             name = "GitHubPackages"
             url = uri(getGitHubUrl())
             credentials {
-                username = getGithubId()
-                password = getAccessToken()
+                username = System.getenv("GPR_USER") ?: getGithubId()
+                password = System.getenv("GPR_API_KEY") ?:getAccessToken()
             }
         }
     }
@@ -89,13 +89,13 @@ publishing() {
 
 String getAccessToken() {
     def properties = new Properties()
-    properties.load(new FileInputStream(rootProject.file("./github.properties")))
+    properties.load(new FileInputStream(rootProject.file("./local.properties")))
     return properties['GIT_ACCESS_TOKEN']
 }
 
 String getGithubId() {
     def properties = new Properties()
-    properties.load(new FileInputStream(rootProject.file("./github.properties")))
+    properties.load(new FileInputStream(rootProject.file("./local.properties")))
     return properties['GIT_USER_NAME']
 }
 
