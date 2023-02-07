@@ -65,6 +65,9 @@ def getGitHubUrl = { ->
     return "https://maven.pkg.github.com/Swati-priya/layout-library"
 }
 
+def properties = new Properties()
+properties.load(new FileInputStream(rootProject.file("./github.properties")))
+
 publishing() {
     publications {
         bar(MavenPublication) {
@@ -80,8 +83,8 @@ publishing() {
             name = "GitHubPackages"
             url = uri(getGitHubUrl())
             credentials {
-                username = project.findProperty("GIT_USER_NAME") ?: System.getenv("GPR_USER")
-                password = project.findProperty("GIT_ACCESS_TOKEN") ?: System.getenv("GPR_API_KEY")
+                username = properties['GIT_USER_NAME']
+                password = properties['GIT_ACCESS_TOKEN']
             }
         }
     }
