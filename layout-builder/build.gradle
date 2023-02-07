@@ -47,7 +47,7 @@ android {
 
 // Place the version of your library here
 def getPublishVersionName = { ->
-    return '0.0.8'
+    return '0.0.9'
 }
 
 // Add the name of your library here
