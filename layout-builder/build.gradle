@@ -89,13 +89,13 @@ publishing() {
 
 String getAccessToken() {
     def properties = new Properties()
-    properties.load(new FileInputStream(rootProject.file("./local.properties")))
+    properties.load(new FileInputStream(rootProject.file("./github.properties")))
     return properties['GIT_ACCESS_TOKEN']
 }
 
 String getGithubId() {
     def properties = new Properties()
-    properties.load(new FileInputStream(rootProject.file("./local.properties")))
+    properties.load(new FileInputStream(rootProject.file("./github.properties")))
     return properties['GIT_USER_NAME']
 }
 
