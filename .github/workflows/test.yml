@@ -35,5 +35,8 @@ jobs:
         echo -e "\nGIT_ACCESS_TOKEN=$ACCESS_TOKEN" >> github.properties
         cat github.properties
 
-    - name: Build & Test with Gradle
+    - name: Build with Gradle
+      run: ./gradlew build
+
+    - name: Test with Gradle
       run: ./gradlew -Pci --console=plain :app:testDebug
