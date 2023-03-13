@@ -3,13 +3,30 @@ pluginManagement {
         gradlePluginPortal()
         google()
         mavenCentral()
+        maven {
+            url "https://maven.pkg.github.com/zopsmart/pagenics-android"
+            credentials {
+                username = properties['GIT_USER_NAME']
+                password = properties['GIT_ACCESS_TOKEN']
+            }
+        }
     }
 }
+def properties = new Properties()
+properties.load(new File(rootDir.absolutePath + "/local.properties").newDataInputStream())
+
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         google()
         mavenCentral()
+        maven {
+            url "https://maven.pkg.github.com/zopsmart/pagenics-android"
+            credentials {
+                username = properties['GIT_USER_NAME']
+                password = properties['GIT_ACCESS_TOKEN']
+            }
+        }
     }
 }
 rootProject.name = "Layout-Library"
